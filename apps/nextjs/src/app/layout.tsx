@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import "~/styles/globals.css";
 
 import { headers } from "next/headers";
+import { ClerkProvider } from "@clerk/nextjs";
 
 import { TRPCReactProvider } from "~/trpc/react";
 
@@ -26,12 +27,14 @@ export const metadata: Metadata = {
 
 export default function Layout(props: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={["font-sans", fontSans.variable].join(" ")}>
-        <TRPCReactProvider headers={headers()}>
-          {props.children}
-        </TRPCReactProvider>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={["font-sans", fontSans.variable].join(" ")}>
+          <TRPCReactProvider headers={headers()}>
+            {props.children}
+          </TRPCReactProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

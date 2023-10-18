@@ -13,6 +13,7 @@
     "with-env": "dotenv -e ../../.env --"
   },
   "dependencies": {
+    "@clerk/nextjs": "^4.25.5",
     "@ready-personnel/api": "^0.1.0",
     "@ready-personnel/db": "^0.1.0",
     "@t3-oss/env-nextjs": "^0.7.0",
