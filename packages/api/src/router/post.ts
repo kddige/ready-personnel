@@ -1,8 +1,7 @@
+import { desc, eq, schema } from "@ready-personnel/db";
 import { z } from "zod";
 
-import { desc, eq, schema } from "@ready-personnel/db";
-
-import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
+import { createTRPCRouter, publicProcedure } from "../trpc";
 
 export const postRouter = createTRPCRouter({
   all: publicProcedure.query(({ ctx }) => {
@@ -22,19 +21,4 @@ export const postRouter = createTRPCRouter({
         where: eq(schema.post.id, input.id),
       });
     }),
-
-  create: protectedProcedure
-    .input(
-      z.object({
-        title: z.string().min(1),
-        content: z.string().min(1),
-      }),
-    )
-    .mutation(({ ctx, input }) => {
-      return ctx.db.insert(schema.post).values(input);
-    }),
-
-  delete: protectedProcedure.input(z.number()).mutation(({ ctx, input }) => {
-    return ctx.db.delete(schema.post).where(eq(schema.post.id, input));
-  }),
 });
