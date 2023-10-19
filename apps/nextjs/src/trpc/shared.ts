@@ -1,10 +1,12 @@
-import type { AppRouter } from "@ready-personnel/api";
 import type { inferRouterInputs, inferRouterOutputs } from "@trpc/server";
 import superjson from "superjson";
+
+import type { AppRouter } from "@ready-personnel/api";
 
 export const transformer = superjson;
 
 function getBaseUrl() {
+  // @ts-expect-error - window is not defined on the server, but it is on the client
   if (typeof window !== "undefined") return "";
   if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
   return `http://localhost:${process.env.PORT ?? 3000}`;

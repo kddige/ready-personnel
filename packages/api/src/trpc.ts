@@ -7,10 +7,11 @@
  * need to use are documented accordingly near the end.
  */
 import type { NextRequest } from "next/server";
-import { db } from "@ready-personnel/db";
 import { initTRPC } from "@trpc/server";
 import superjson from "superjson";
 import { ZodError } from "zod";
+
+import { db } from "@ready-personnel/db";
 
 /**
  * 1. CONTEXT

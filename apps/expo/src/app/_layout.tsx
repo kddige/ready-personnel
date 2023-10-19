@@ -1,6 +1,8 @@
 import React from "react";
+import Constants from "expo-constants";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
+import { ClerkProvider } from "@clerk/clerk-expo";
 
 import { TRPCProvider } from "~/utils/api";
 
@@ -8,14 +10,20 @@ import { TRPCProvider } from "~/utils/api";
 // It wraps your pages with the providers they need
 const RootLayout = () => {
   return (
-    <TRPCProvider>
-      {/*
+    <ClerkProvider
+      publishableKey={
+        Constants.expoConfig?.extra?.clerkPublishableKey as string
+      }
+    >
+      <TRPCProvider>
+        {/*
         The Stack component displays the current page.
         It also allows you to configure your screens 
       */}
-      <Stack />
-      <StatusBar />
-    </TRPCProvider>
+        <Stack />
+        <StatusBar />
+      </TRPCProvider>
+    </ClerkProvider>
   );
 };
 
