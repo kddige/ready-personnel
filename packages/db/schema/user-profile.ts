@@ -18,3 +18,8 @@ export const userProfileSchema = mysqlTable("user_profile", {
   orgId: varchar("org_id", { length: 256 }).notNull(),
   orgRole: userProfileRoleEnum.default("USER").notNull(),
 });
+
+export type UserProfileSchemaSelect = typeof userProfileSchema.$inferSelect;
+export type UserProfileSchemaInsert = typeof userProfileSchema.$inferInsert;
+
+export type UserProfileSchemaId = UserProfileSchemaSelect["id"];
