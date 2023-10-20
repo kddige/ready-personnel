@@ -1,11 +1,11 @@
-import React from "react";
+import { useState } from "react";
 import { Button, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Stack } from "expo-router";
 
 function CreatePost() {
-  const [title, setTitle] = React.useState("");
-  const [content, setContent] = React.useState("");
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
 
   return (
     <View>
@@ -15,11 +15,6 @@ function CreatePost() {
         onChangeText={setTitle}
         placeholder="Title"
       />
-      {/* {error?.data?.zodError?.fieldErrors.title && (
-        <Text className="mb-2 text-red-500">
-          {error.data.zodError.fieldErrors.title}
-        </Text>
-      )} */}
       <TextInput
         placeholderTextColor="rgba(255, 255, 255, 0.5)"
         value={content}
@@ -40,7 +35,7 @@ const Index = () => {
       <Stack.Screen options={{ title: "Home Page" }} />
       <View>
         <Text>
-          Create <Text className="text-pink-400">T3</Text> Turbo
+          Create <Text>T3</Text> Turbo
         </Text>
 
         <Button title="Refresh posts" color={"#f472b6"} />
