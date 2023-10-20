@@ -44,7 +44,6 @@
     "@ready-personnel/api": "^0.1.0",
     "@ready-personnel/eslint-config": "^0.2.0",
     "@ready-personnel/prettier-config": "^0.1.0",
-    "@ready-personnel/tailwind-config": "^0.1.0",
     "@ready-personnel/tsconfig": "^0.1.0",
     "@types/babel__core": "^7.20.2",
     "@types/react": "^18.2.28",
