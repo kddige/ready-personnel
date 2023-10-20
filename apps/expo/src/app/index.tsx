@@ -8,9 +8,8 @@ function CreatePost() {
   const [content, setContent] = React.useState("");
 
   return (
-    <View className="mt-4">
+    <View>
       <TextInput
-        className="mb-2 rounded bg-white/10 p-2 text-white"
         placeholderTextColor="rgba(255, 255, 255, 0.5)"
         value={title}
         onChangeText={setTitle}
@@ -22,14 +21,13 @@ function CreatePost() {
         </Text>
       )} */}
       <TextInput
-        className="mb-2 rounded bg-white/10 p-2 text-white"
         placeholderTextColor="rgba(255, 255, 255, 0.5)"
         value={content}
         onChangeText={setContent}
         placeholder="Content"
       />
-      <TouchableOpacity className="rounded bg-pink-400 p-2">
-        <Text className="font-semibold text-white">Publish post</Text>
+      <TouchableOpacity>
+        <Text>Publish post</Text>
       </TouchableOpacity>
     </View>
   );
